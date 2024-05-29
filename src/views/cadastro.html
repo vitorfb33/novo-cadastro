@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--evitar ataques de Cross Site Scripting (injeção de dados)-->
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <title>Cadastro de Cliente</title>
+    
+</head>
+<body class="bg-dark">
+    <h1 class="text-center text-light mt-3">Clientes</h1>
+
+    <div class="col-md-6 d-flex mt-3">
+        <input type="text" class="form-control ms-3" id="inputSearch" maxlength="30">
+        <button type="button" class="btn btn-primary ms-3" id="btnRead" onclick="pesquisarCliente()">Buscar</button>
+      </div>
+
+      <div class="col-md-4">
+        
+      </div>
+
+      <hr class="border border-primary border-1 opacity-75">
+
+
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="idClient" placeholder="ID" maxlength="30">
+        <br>
+      </div>
+  <div class="container-fluid">
+    <form id="formCadastros" class="row g-3">
+        
+    <div class="col-8"><input type="text" placeholder="Nome" id="formNome" class="form-control text-center" required spellcheck="false"></div>
+        
+    <div class="col-4"><input type="tel" placeholder="Telefone" id="formTelefone"  class="form-control text-center" spellcheck="false"></div>        
+        
+    <div class="col-md-6"><input type="email" required placeholder="Email" id="formEmail"  class="form-control text-center " spellcheck="false"></div>
+
+    <div class="col-md-5"><input type="number" required placeholder="CPF" id="formCpf"  class="form-control text-center" onblur="verificaCPF()" spellcheck="false"></div>
+    <img src="../public/img/erro.png" alt="CPF invalido" id="cpfVerificado" class="col-md-1 img-fluid">
+        
+    <div class="col-4"><input type="text" placeholder="Cep" id="formCep" maxlength="9" onblur="buscarEndereco()" class="form-control text-center" spellcheck="false"></div>
+        
+    <div class="col-8"><input type="text" placeholder="Logradouro" id="formLogradouro" class="form-control text-center " spellcheck="false"></div>
+
+    <div class="col-4"><input type="text" placeholder="Numero" id="formNumero" class="form-control text-center" spellcheck="false"></div>
+
+    <div class="col-8"><input type="text" placeholder="Complemento" id="formComplemento" class="form-control text-center" spellcheck="false"></div>
+        
+    <div class="col-6"><input type="text" placeholder="Bairro" id="formBairro" class="form-control text-center" spellcheck="false"></div>
+        
+    <div class="col-4"><input type="text" placeholder="Cidade" id="formCidade" class="form-control text-center" spellcheck="false"></div>
+        
+    <div class="col-2">
+      <select name="uf" id="formUf" class="form-select">
+        <option value="" selected>Selecione a UF</option>
+        <option value="SP">SP</option>
+        <option value="RJ">RJ</option>
+        <option value="MG">MG</option>
+        <option value="RS">RS</option>
+        <option value="RN">RN</option>
+        <option value="PA">PA</option>
+        <option value="BH">BH</option>
+      </select>
+    </div>
+  
+
+        <input type="submit" value="Salvar" class="mt-4 btn btn-outline-light col-3 ms-3" id="btnSalvar">
+        
+        <button type="button" class="btn btn-outline-light mt-4 ms-3 col-3" id="btnUpdate" onclick="editarCliente()" > Editar </button>
+
+        <button type="button" onclick="excluirCliente()" class="btn btn-outline-light mt-4 ms-3 col-3" id="btnDelete" > Excluir </button>
+
+        <button type="reset" class="btn" id="btnReset" onclick="clean()"></button>
+  </form>
+  </div>  
+<!--</main>--->
+
+    <script src="../public/js/janela1/renderer.js"></script>
+    <script src="../views/script.js"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    
+</body>
+</html>
